@@ -1,31 +1,31 @@
-# Mask 项目技术说明
+Using Node.js 20, Tailwind CSS v3.4.19, and Vite v7.2.4
 
-## 项目概述
-Mask 是一个智能投资平台，基于 React + TypeScript + Tailwind CSS 构建。
+Tailwind CSS has been set up with the shadcn theme
 
-## 技术栈
-- React 18 + TypeScript
-- Vite (构建工具)
-- Tailwind CSS (样式)
-- shadcn/ui (UI 组件库)
-- React Router (路由)
-- Recharts (图表)
+Setup complete: /mnt/agents/output/app
 
-## 项目结构
-- `src/components/ui/` — shadcn/ui 组件
-- `src/components/` — 自定义组件
-- `src/pages/` — 页面组件
-- `src/lib/` — 工具函数和数据
-- `src/hooks/` — 自定义 Hooks
-- `src/types/` — TypeScript 类型定义
+Components (40+):
+  accordion, alert-dialog, alert, aspect-ratio, avatar, badge, breadcrumb,
+  button-group, button, calendar, card, carousel, chart, checkbox, collapsible,
+  command, context-menu, dialog, drawer, dropdown-menu, empty, field, form,
+  hover-card, input-group, input-otp, input, item, kbd, label, menubar,
+  navigation-menu, pagination, popover, progress, radio-group, resizable,
+  scroll-area, select, separator, sheet, sidebar, skeleton, slider, sonner,
+  spinner, switch, table, tabs, textarea, toggle-group, toggle, tooltip
 
-## 运行项目
-```bash
-npm install
-npm run dev
-```
+Usage:
+  import { Button } from '@/components/ui/button'
+  import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 
-## 构建项目
-```bash
-npm run build
-```
+Structure:
+  src/sections/        Page sections
+  src/hooks/           Custom hooks
+  src/types/           Type definitions
+  src/App.css          Styles specific to the Webapp
+  src/App.tsx          Root React component
+  src/index.css        Global styles
+  src/main.tsx         Entry point for rendering the Webapp
+  index.html           Entry point for the Webapp
+  tailwind.config.js   Configures Tailwind's theme, plugins, etc.
+  vite.config.ts       Main build and dev server settings for Vite
+  postcss.config.js    Config file for CSS post-processing tools
