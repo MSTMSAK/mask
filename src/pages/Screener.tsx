@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Search, SlidersHorizontal, ChevronDown, TrendingUp,
-  TrendingDown, Sparkles, X, Check, BarChart3,
-} from 'lucide-react';
+import { Search, SlidersHorizontal, ChevronDown, TrendingUp, TrendingDown, Sparkles, X, Check, BarChart3 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import ScrollReveal from '@/components/ScrollReveal';
 import { trpc } from '@/providers/trpc';
@@ -46,14 +43,12 @@ export default function Screener() {
     setFilters((prev) => prev.map((f) => (f.id === id ? { ...f, active: !f.active } : f)));
   };
 
-  // 显示搜索结果或筛选结果
   const displayStocks = searchQuery.length >= 2 ? (searchedStocks || []) : (filteredStocks || []);
   const isLoading = searchQuery.length >= 2 ? searching : filtering;
 
   return (
     <div className="min-h-screen bg-[#0B0E14]">
       <Navbar />
-
       <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
@@ -67,7 +62,6 @@ export default function Screener() {
             </div>
           </ScrollReveal>
 
-          {/* Search + Filter */}
           <ScrollReveal delay={0.1}>
             <div className="flex flex-col sm:flex-row gap-3 mb-6">
               <div className="flex-1 relative">
@@ -99,7 +93,6 @@ export default function Screener() {
             </div>
           </ScrollReveal>
 
-          {/* Filter Panel */}
           <AnimatePresence>
             {showFilters && (
               <motion.div
@@ -161,7 +154,6 @@ export default function Screener() {
             )}
           </AnimatePresence>
 
-          {/* Results */}
           {isLoading ? (
             <div className="flex items-center justify-center h-32">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#06B6D4]" />

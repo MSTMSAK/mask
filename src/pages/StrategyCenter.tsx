@@ -30,7 +30,6 @@ export default function StrategyCenter() {
 
   const currentStrategy = strategies.find((s) => s.id === selectedStrategy);
 
-  // Generate backtest data for selected strategy
   const backtestData = [
     { month: '1月', strategy: 5.2, benchmark: 2.1 },
     { month: '2月', strategy: -2.8, benchmark: -3.5 },
@@ -49,10 +48,8 @@ export default function StrategyCenter() {
   return (
     <div className="min-h-screen bg-[#0B0E14]">
       <Navbar />
-
       <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
           <ScrollReveal>
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-2">
@@ -64,7 +61,6 @@ export default function StrategyCenter() {
             </div>
           </ScrollReveal>
 
-          {/* Category Tabs */}
           <ScrollReveal delay={0.1}>
             <div className="flex flex-wrap gap-2 mb-8">
               {strategyCategories.map((cat) => (
@@ -83,7 +79,6 @@ export default function StrategyCenter() {
             </div>
           </ScrollReveal>
 
-          {/* Strategy Grid */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeCategory}
@@ -141,7 +136,6 @@ export default function StrategyCenter() {
                     </div>
                   </div>
 
-                  {/* Expand indicator */}
                   <div className="flex items-center justify-center mt-4 pt-4 border-t border-[#1E293B]">
                     <span className="text-xs text-[#64748B]">
                       {selectedStrategy === strategy.id ? '收起详情' : '查看回测'}
@@ -152,7 +146,6 @@ export default function StrategyCenter() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Strategy Detail / Backtest */}
           <AnimatePresence>
             {currentStrategy && (
               <motion.div
@@ -174,7 +167,6 @@ export default function StrategyCenter() {
                     </button>
                   </div>
 
-                  {/* Key Metrics */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                     {[
                       { label: '年化收益率', value: `${currentStrategy.annualReturn}%`, color: '#06B6D4', icon: TrendingUp },
@@ -197,7 +189,6 @@ export default function StrategyCenter() {
                     })}
                   </div>
 
-                  {/* Monthly Returns Table */}
                   <div>
                     <h4 className="text-sm font-medium text-[#E2E8F0] mb-3">月度收益对比</h4>
                     <div className="overflow-x-auto">
@@ -240,7 +231,6 @@ export default function StrategyCenter() {
             )}
           </AnimatePresence>
 
-          {/* Strategy Fusion Promo */}
           <ScrollReveal delay={0.3}>
             <div className="mt-8 bg-gradient-to-r from-[#164E63]/30 to-[#06B6D4]/10 border border-[#06B6D4]/20 rounded-2xl p-6 sm:p-8">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
