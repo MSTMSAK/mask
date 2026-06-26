@@ -66,11 +66,8 @@ export default function FiveDPreview() {
 
   return (
     <section className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-12 bg-[#0B0E14] overflow-hidden">
-      {/* Radial Spotlight Background */}
       <div className="absolute inset-0 radial-spotlight opacity-30 pointer-events-none" />
-
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
         <ScrollReveal>
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -84,14 +81,10 @@ export default function FiveDPreview() {
           </div>
         </ScrollReveal>
 
-        {/* Center Content */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
-          {/* Radar Chart */}
           <ScrollReveal delay={0.2}>
             <div className="relative">
               <FiveDRadar data={featuredStock.fiveD} size={360} showLabels={true} />
-
-              {/* Center Score */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-center">
                   <div className="data-number text-4xl text-[#06B6D4]" style={{ textShadow: '0 0 20px rgba(6,182,212,0.5)' }}>
@@ -103,12 +96,10 @@ export default function FiveDPreview() {
             </div>
           </ScrollReveal>
 
-          {/* Dimension Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 w-full max-w-md">
             {dimensionCards.map((dim, i) => {
               const Icon = dim.icon;
               const isActive = activeDim === dim.key;
-
               return (
                 <ScrollReveal key={dim.key} delay={0.1 * i}>
                   <motion.button
@@ -122,20 +113,14 @@ export default function FiveDPreview() {
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div
-                        className="w-9 h-9 rounded-lg flex items-center justify-center"
-                        style={{ backgroundColor: `${dim.color}15` }}
-                      >
+                      <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${dim.color}15` }}>
                         <Icon className="w-4 h-4" style={{ color: dim.color }} />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
                           <span className="text-sm font-medium text-[#E2E8F0]">{dim.label}</span>
-                          <span className="data-number text-sm" style={{ color: dim.color }}>
-                            {dim.score}分
-                          </span>
+                          <span className="data-number text-sm" style={{ color: dim.color }}>{dim.score}分</span>
                         </div>
-                        {/* Progress Bar */}
                         <div className="mt-1.5 h-1 bg-[#1E293B] rounded-full overflow-hidden">
                           <motion.div
                             initial={{ width: 0 }}
@@ -148,20 +133,13 @@ export default function FiveDPreview() {
                         </div>
                       </div>
                     </div>
-
-                    {/* Expandable Description */}
                     <motion.div
                       initial={false}
-                      animate={{
-                        height: isActive ? 'auto' : 0,
-                        opacity: isActive ? 1 : 0,
-                      }}
+                      animate={{ height: isActive ? 'auto' : 0, opacity: isActive ? 1 : 0 }}
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <p className="text-xs text-[#94A3B8] mt-3 pl-12 leading-relaxed">
-                        {dim.desc}
-                      </p>
+                      <p className="text-xs text-[#94A3B8] mt-3 pl-12 leading-relaxed">{dim.desc}</p>
                     </motion.div>
                   </motion.button>
                 </ScrollReveal>
